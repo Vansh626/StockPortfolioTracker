@@ -1,31 +1,48 @@
-# Stock Portfolio Tracker (C++)
+# StockPortfolioTracker
 
-A command-line tool to manage your stock investments. Features:
-- Add, remove, and view stocks
-- Calculate CAGR using live market prices
-- Fetch prices using Yahoo Finance or fallback to Twelve Data
+A C++ command-line stock portfolio tracker with live price fetching and CAGR (Compound Annual Growth Rate) calculator.
 
-## Tech Used
-- C++
-- CPR (C++ Requests)
-- nlohmann/json
-- vcpkg + CMake
+---
 
-## Build Instructions
+## Features
+
+- Add and remove stocks
+- View your portfolio
+- Calculate CAGR for any stock
+- Save and load from JSON
+- Fetch real-time stock prices using Yahoo Finance (fallback to Twelve Data API)
+
+---
+
+## Technologies Used
+
+- **C++17**
+- **[nlohmann/json](https://github.com/nlohmann/json)** for JSON parsing
+- **[CPR](https://github.com/libcpr/cpr)** for HTTP requests
+- **CMake** for build configuration
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- C++ compiler (MSVC / MinGW / GCC)
+- [CMake](https://cmake.org/)
+- Git
+- vcpkg (for dependency management)
+
+### Setup Instructions
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/StockPortfolioTracker.git
+# Clone the repository
+git clone https://github.com/Vansh626/StockPortfolioTracker.git
 cd StockPortfolioTracker
 
-# Setup vcpkg
-git clone https://github.com/microsoft/vcpkg.git
-cd vcpkg
-./bootstrap-vcpkg.bat
-./vcpkg install cpr nlohmann-json
-cd ..
+# Install CPR using vcpkg (if not already installed)
+./vcpkg install cpr
 
-# Build
-mkdir build
-cd build
+# Create build directory and compile
+mkdir build && cd build
 cmake .. -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake
 cmake --build .
